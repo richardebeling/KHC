@@ -1,0 +1,7 @@
+//while (R1 > 0) {dec R1; inc R2;}
+isz 1
+jmp 5
+stp
+inc 2
+dec 1
+jmp 2
