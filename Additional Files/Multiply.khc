@@ -1,0 +1,46 @@
+//Calculates R1 * R2 in R3, needs 5 Registers
+//Idea: Y*X = Y+Y+Y (X Times)
+//
+//if ((R1==0) | (R2 == 0)) return; //to save lines
+//cp 1 to 5;
+//{cp 2 to 3; dec 5;} until (5==0).
+//---------------------------------------------------
+// First: check for zeros
+isz 1
+jmp 12
+stp
+isz 2
+jmp 17
+stp
+//----------------------------
+// now: mv 1 to 4, 5
+dec 1
+inc 4
+inc 5
+isz 1
+jmp 17
+//----------------------------
+// mv 4 to 1
+dec 4
+inc 1
+isz 4
+jmp 24
+//-----------------------------
+// add 2 to 3, 4
+dec 2
+inc 3
+inc 4
+isz 2
+jmp 30
+//---------------------------
+//mv 4 to 2
+dec 4
+inc 2
+isz 4
+jmp 37
+//---------------------------
+//decrease 5, check for zero, start at beginning.
+dec 5
+isz 5
+jmp 30
+stp
